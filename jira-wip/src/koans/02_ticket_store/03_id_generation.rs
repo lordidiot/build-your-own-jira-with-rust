@@ -19,6 +19,7 @@ pub type TicketId = u32;
 // Feel free to add more fields to `TicketStore` to solve this koan!
 struct TicketStore {
     data: HashMap<TicketId, Ticket>,
+    max_id: TicketId,
 }
 
 impl TicketStore {
@@ -26,6 +27,7 @@ impl TicketStore {
     {
         TicketStore {
             data: HashMap::new(),
+            max_id: 0,
         }
     }
 
@@ -52,12 +54,13 @@ impl TicketStore {
     }
 
     pub fn get(&self, id: &TicketId) -> Option<&Ticket> {
-                                                      self.data.get(id)
-                                                                       }
+        self.data.get(id)
+    }
 
-    fn generate_id(__) -> TicketId {
-                                 todo!()
-                                        }
+    fn generate_id(&mut self) -> TicketId {
+        self.max_id += 1;
+        self.max_id
+    }
 }
 
 #[cfg(test)]
