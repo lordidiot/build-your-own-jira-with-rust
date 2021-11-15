@@ -17,7 +17,7 @@
 /// You can find more about structs in the Rust Book: https://doc.rust-lang.org/book/ch05-01-defining-structs.html
 pub struct Ticket {
     title: String,
-    __: __
+    description: String,
 }
 
 /// `cfg` stands for configuration flag.
